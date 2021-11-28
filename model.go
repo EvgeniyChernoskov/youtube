@@ -40,4 +40,16 @@ func (item Item) String() string {
 		item.GetVideoUrl())
 }
 
+type Video struct {
+	Title       string `json:"title"`
+	Description string `json:"description"`
+	Url         string `json:"url""`
+}
 
+func (item Item) Json() Video  {
+	return Video{
+		Title: item.Info.VideoTitle,
+		Description: item.Info.Description,
+		Url: item.GetVideoUrl(),
+	}
+}

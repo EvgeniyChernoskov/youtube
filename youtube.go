@@ -22,16 +22,17 @@ func New(token string) YouTube {
 	return YouTube{apiToken: token, channelId: YOUTUBE_MAXIM_ZHASHKEVYCH_CHANNEL_ID}
 }
 
-//search for channelID
+// SetChannelId search for channelID
 func (y *YouTube)SetChannelId(channelID string) {
 	y.channelId=channelID
 }
-//set search for all channels
+
+// SetAllChannels set search for all channels
 func (y *YouTube) SetAllChannels(){
 	y.channelId=""
 }
 
-//search latest video on YouTube, max 50 results
+// Search the latest video on YouTube, max 50 results
 func (y *YouTube) Search(target string, maxResults int) ([]Item, error) {
 	req, err := y.findRequest(target, maxResults)
 	if err != nil {
